@@ -1,0 +1,3 @@
+runtime: python312
+
+entrypoint: gunicorn -k uvicorn.workers.UvicornWorker -b :$PORT app.main:app
