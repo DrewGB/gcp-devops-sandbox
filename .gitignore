@@ -1,7 +1,24 @@
+# Python bytecode and cache
 __pycache__/
-*.pyc
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environments
 .venv/
-.env
+env/
+*.env
+
+# IDE configs
 .idea/
+.vscode/
+*.iml
+
+# macOS files
 .DS_Store
+
+# Logs, OS clutter, misc
+*.log
+
+# Docker + GCP
 .gcloudignore
