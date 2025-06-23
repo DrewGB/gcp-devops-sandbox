@@ -6,13 +6,6 @@ pipeline {
     TAG = "latest"
   }
 
-  stages {
-    stage('Checkout') {
-      steps {
-        git 'https://github.com/DrewGB/gcp-devops-sandbox.git'
-      }
-    }
-
     stage('Build Docker Image') {
       steps {
         sh 'docker build -t $IMAGE_NAME:$TAG .'
