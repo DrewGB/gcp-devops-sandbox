@@ -7,7 +7,14 @@ A self-contained sandbox application built with FastAPI, designed to demonstrate
 - Prometheus-style metrics exposure
 - CI/CD integration readiness
 
-This project is part of a self-guided bootcamp focused on gaining practical experience relevant to a DevOps/Platform Engineering role.
+## Project Overview
+
+The GCP DevOps Sandbox is a personal DevOps training project aimed at demonstrating familiarity with common tools and practices used in Platform Engineering. The goal is to simulate a realistic DevOps environment using:
+
+- CI/CD (Jenkins)
+- Monitoring (Prometheus + Grafana)
+- Infrastructure as Code (Terraform)
+- Cloud deployment (GCP App Engine)
 
 ## Features
 
@@ -58,3 +65,21 @@ docker run -d -p 8000:8000 --name gcp-devops-sandbox-api gcp-devops-sandbox
 gcloud app deploy
     
 ```
+
+## CI/CD with Jenkins
+
+This project includes a Jenkinsfile pipeline for automated deployment via minikube. Jenkins was installed into a jenkins namespace via helm and run locally. The pipeline includes:
+
+* Installing dependencies
+* Building docker container
+* Deploying to minikube
+
+## Monitoring done with Prometheus and Grafana
+
+Prometheus counters were added to the FastAPI in order to track metrics across all routes. 
+Prometheus and Grafana were installed via helm to a monitoring namespace in minikube, and a service monitor
+was created in order for prometheus to scrape the /metrics endpoint.
+
+Metrics are viewed in a custom grafana dashboard. Below is a snapshot showing all http requests sent to the FastAPI app.
+
+![devops-grafana-ss.png](docs/devops-grafana-ss.png)
